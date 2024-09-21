@@ -9,6 +9,16 @@ namespace mst_pruebas.Nucleo
 {
     internal class EntidadesHelper
     {
+        //Metodo inicializar Mensajeros
+        public static Mensajeros ObtenerMensajeros() {
+            return new Mensajeros()
+            {
+                Transportista = "Transportista Ejemplo"
+            };
+        
+        }
+
+        //Metodo inicializar Facturas
         public static Facturas ObtenerFacturas()
         {
             return new Facturas()
