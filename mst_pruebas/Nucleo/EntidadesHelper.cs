@@ -9,6 +9,82 @@ namespace mst_pruebas.Nucleo
 {
     internal class EntidadesHelper
     {
+        public static Remitentes ObtenerRemitentes() {
+            return new Remitentes()
+            {
+                Nombre = "Jaime",
+                Direcc_rem = "carrera 15#516-415"
+            };
+        }
+        public static Pedidos ObtenerPedidos() {
+            return new Pedidos()
+            {
+                Cod_pedido = 777,
+                Descripcion = "Pedido de productos electrónicos",
+                Medidas = "50x40x30",
+                Estado = "Entregado",
+                Remi = new Remitentes()
+                {
+                    Nombre = "Proveedor XYZ",
+                    Direcc_rem = "Calle 849-4584-54"
+                }
+            };
+        }
+        public static Productos ObtenerProductos() {
+            return new Productos()
+            {
+                Cantidad = 5,
+                Precio = 2500.5m,
+                Iva = 18.9m,
+                Nom_prod = "Chicharron"
+            };
+        }
+        public static Detalles ObtenerDetalles() {
+            return new Detalles()
+            {
+                Producto = new Productos()
+                {
+                    
+                    Nom_prod = "Producto B",
+                    Precio = 150.0m,
+                    Cantidad = 5,
+                    Iva = 0.16m
+                },
+                Pedido = new Pedidos()
+                {
+                    
+                    Cod_pedido = 555,
+                    Descripcion = "Pedido B",
+                    Medidas = "40x30x20",
+                    Estado = "En camino",
+                    Remi = new Remitentes()
+                    {
+                        
+                        Nombre = "Remitente B",
+                        Direcc_rem = "Avenida 58"
+                    }
+                }
+            };
+        }
+
+        public static Clientes ObtenerClientes() {
+            return new Clientes()
+            {
+                Nombre = "Juan",
+                Cedula = "123245678",
+                Telefono = "3154789565",
+                Direcc = "Carrera 547-44-445"
+            };
+        }
+
+        public static Metodos_de_pago ObtenerMetodos_de_pago() {
+            return new Metodos_de_pago()
+            {
+                Tipo = "Efectivo Ejemplo"
+            };
+        }
+
+
         //Metodo inicializar Mensajeros
         public static Mensajeros ObtenerMensajeros() {
             return new Mensajeros()

@@ -21,7 +21,12 @@ namespace lib_repositorios
 
         protected DbSet<Facturas>? Facturas { get; set; }
         protected DbSet<Mensajeros>? Mensajeros { get; set; }
-
+        protected DbSet<Metodos_de_pago>? Metodos_de_pago { get; set; }
+        protected DbSet<Clientes>? Clientes { get; set; }
+        protected DbSet<Detalles>? Detalles { get; set; }
+        protected DbSet<Productos>? Productos { get; set; }
+        protected DbSet<Pedidos>? Pedidos { get; set; }
+        protected DbSet<Remitentes>? Remitentes { get; set; }
         public virtual DbSet<T> ObtenerSet<T>() where T : class, new()
         {
             return this.Set<T>();
