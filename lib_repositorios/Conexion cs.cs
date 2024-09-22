@@ -20,6 +20,7 @@ namespace lib_repositorios
         }
 
         protected DbSet<Facturas>? Facturas { get; set; }
+        protected DbSet<Mensajeros>? Mensajeros { get; set; }
 
         public virtual DbSet<T> ObtenerSet<T>() where T : class, new()
         {
