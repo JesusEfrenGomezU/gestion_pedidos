@@ -26,7 +26,7 @@ namespace mst_pruebas.Nucleo
                 Remi = new Remitentes()
                 {
                     Nombre = "Proveedor XYZ",
-                    Direcc_rem = "Calle 849-4584-54"
+                    Direcc_rem = "Calle 849#465"
                 }
             };
         }
@@ -105,7 +105,7 @@ namespace mst_pruebas.Nucleo
                     Cedula = "1234567890",
                     Nombre = "Jose Perez",
                     Telefono = "123-456-7890",
-                    Direcc = "Calle 123, Ciudad"
+                    Direcc = "Calle 123 Ciudad"
                 },
                 Fecha = DateTime.Now, 
                 M_pago = new Metodos_de_pago() {

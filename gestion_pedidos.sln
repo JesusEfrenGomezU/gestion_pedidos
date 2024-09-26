@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35303.130
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_repositorios", "lib_repositorios\lib_repositorios.csproj", "{88EB4963-B4A5-41F8-ADC1-C72BE124EF91}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_repositorios", "lib_repositorios\lib_repositorios.csproj", "{88EB4963-B4A5-41F8-ADC1-C72BE124EF91}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mst_pruebas", "mst_pruebas\mst_pruebas.csproj", "{3CF50D3C-AC25-4927-93DB-476E3BB33BED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mst_pruebas", "mst_pruebas\mst_pruebas.csproj", "{3CF50D3C-AC25-4927-93DB-476E3BB33BED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_entidades", "lib_entidades\lib_entidades.csproj", "{E9357659-9F15-461B-81F6-1224B657CE13}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_entidades", "lib_entidades\lib_entidades.csproj", "{E9357659-9F15-461B-81F6-1224B657CE13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_aplicaciones", "lib_aplicaciones\lib_aplicaciones.csproj", "{38987148-ADB0-4AB2-BAD6-D2F535F68E97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp_servicios", "asp_servicios\asp_servicios.csproj", "{0EB261AF-EE1E-4CC8-85F9-0ACF866826FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{E9357659-9F15-461B-81F6-1224B657CE13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E9357659-9F15-461B-81F6-1224B657CE13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E9357659-9F15-461B-81F6-1224B657CE13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38987148-ADB0-4AB2-BAD6-D2F535F68E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38987148-ADB0-4AB2-BAD6-D2F535F68E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38987148-ADB0-4AB2-BAD6-D2F535F68E97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38987148-ADB0-4AB2-BAD6-D2F535F68E97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0EB261AF-EE1E-4CC8-85F9-0ACF866826FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EB261AF-EE1E-4CC8-85F9-0ACF866826FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EB261AF-EE1E-4CC8-85F9-0ACF866826FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EB261AF-EE1E-4CC8-85F9-0ACF866826FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
