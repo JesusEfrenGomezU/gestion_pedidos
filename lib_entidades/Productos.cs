@@ -18,5 +18,9 @@ namespace lib_entidades
         public decimal Iva { get => this.iva; set => this.iva = value; }
         public string Nom_prod { get => this.nom_prod; set => this.nom_prod = value; }
 
+        public static void  ValidarIva()
+        {
+            
+        }
     }
 }

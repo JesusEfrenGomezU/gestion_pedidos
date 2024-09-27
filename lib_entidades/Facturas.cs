@@ -31,6 +31,20 @@ namespace lib_entidades
         [ForeignKey("Remitente_id")][Column("remitente_id")] public Remitentes? Remi { get => this.remi; set => this.remi = value; }
         [ForeignKey("Mensajero_id")][Column("mensajero_id")] public Mensajeros Menj { get => this.menj; set => this.menj = value; }
 
+        public static void administrarDetalles()
+        {
+
+        }
+
+        public static void validarEstado()
+        {
+
+        }
+
+        public static void validarFactura()
+        {
+
+        }
 
     }
 }
