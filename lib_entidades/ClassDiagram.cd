@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="lib_entidades.Clientes" HideInheritanceLine="true">
+    <Position X="12.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAgAAAAKAAAAAgAAAAAAAAAAAAAAAAgAAAgI=</HashCode>
+      <FileName>Clientes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lib_entidades.Detalles" HideInheritanceLine="true">
+    <Position X="7.25" Y="1" Width="1.5" />
+    <AssociationLine Name="pedido" Type="lib_entidades.Pedidos" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="7.469" Y="2.94" />
+        <Point X="7.469" Y="5.625" />
+        <Point X="6.25" Y="5.625" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQBAAAEAQAAAAAAAAAAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Detalles.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="pedido" />
+      <Field Name="producto" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="lib_entidades.Facturas" HideInheritanceLine="true">
+    <Position X="10" Y="1" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAgAAAQQAAEEABQBAAAQBgEBAQABAQEAgAAAAIAA=</HashCode>
+      <FileName>Facturas.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="cliente" />
+      <Field Name="details" />
+      <Field Name="m_pago" />
+      <Field Name="menj" />
+      <Field Name="remi" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="lib_entidades.Mensajeros" HideInheritanceLine="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAACAAAAAgAAAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Mensajeros.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lib_entidades.Metodos_de_pago" HideInheritanceLine="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAQAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Metodos_de_pago.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lib_entidades.Pedidos" HideInheritanceLine="true">
+    <Position X="4.75" Y="4.25" Width="1.5" />
+    <AssociationLine Name="remi" Type="lib_entidades.Remitentes" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="6.25" Y="6.875" />
+        <Point X="9.88" Y="6.875" />
+        <Point X="9.88" Y="6.87" />
+        <Point X="17.25" Y="6.87" />
+        <Point X="17.25" Y="4.824" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACCAAAAAAAgAAARIEAAEQBAAAAAAAAAAAAAAAAAgg=</HashCode>
+      <FileName>Pedidos.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="remi" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="lib_entidades.Productos" HideInheritanceLine="true">
+    <Position X="4.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQIAgAEGAgAAAAAAAAAAAAAQAgAAEAAAAAAgAAAAIAA=</HashCode>
+      <FileName>Productos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="lib_entidades.Remitentes" HideInheritanceLine="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAIAAAAAAAACAAAAAgAAAAAAAAAAAgAAAAAAAAgA=</HashCode>
+      <FileName>Remitentes.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

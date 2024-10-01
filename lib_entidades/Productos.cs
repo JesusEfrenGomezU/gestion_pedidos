@@ -22,5 +22,10 @@ namespace lib_entidades
         {
             
         }
+
+        public static void ValidarPrecio() 
+        { 
+        
+        }
     }
 }
