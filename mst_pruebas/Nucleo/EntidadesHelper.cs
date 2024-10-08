@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace mst_pruebas.Nucleo
 {
-    internal class EntidadesHelper
+    public class EntidadesHelper
     {
         public static Remitentes ObtenerRemitentes() {
             return new Remitentes()
