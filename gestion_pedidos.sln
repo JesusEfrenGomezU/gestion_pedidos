@@ -9,9 +9,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mst_pruebas", "mst_pruebas\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_entidades", "lib_entidades\lib_entidades.csproj", "{E9357659-9F15-461B-81F6-1224B657CE13}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_aplicaciones", "lib_aplicaciones\lib_aplicaciones.csproj", "{38987148-ADB0-4AB2-BAD6-D2F535F68E97}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_aplicaciones", "lib_aplicaciones\lib_aplicaciones.csproj", "{38987148-ADB0-4AB2-BAD6-D2F535F68E97}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp_servicios", "asp_servicios\asp_servicios.csproj", "{0EB261AF-EE1E-4CC8-85F9-0ACF866826FE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "asp_servicios", "asp_servicios\asp_servicios.csproj", "{0EB261AF-EE1E-4CC8-85F9-0ACF866826FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Presentaciones", "1 Presentaciones", "{3D5184ED-EB56-46CB-9D29-4AE4E7B3576A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Servicios", "2 Servicios", "{47799811-AA60-4BCF-B256-904C0A85C2AE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Comunes", "3 Comunes", "{2E6E82AD-1241-4CF8-B483-233EEE6A675A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Pruebas Unitarias", "4 Pruebas Unitarias", "{D99A7CE9-19D3-4750-996D-3D3A43212669}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +50,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{88EB4963-B4A5-41F8-ADC1-C72BE124EF91} = {47799811-AA60-4BCF-B256-904C0A85C2AE}
+		{3CF50D3C-AC25-4927-93DB-476E3BB33BED} = {D99A7CE9-19D3-4750-996D-3D3A43212669}
+		{E9357659-9F15-461B-81F6-1224B657CE13} = {2E6E82AD-1241-4CF8-B483-233EEE6A675A}
+		{38987148-ADB0-4AB2-BAD6-D2F535F68E97} = {47799811-AA60-4BCF-B256-904C0A85C2AE}
+		{0EB261AF-EE1E-4CC8-85F9-0ACF866826FE} = {47799811-AA60-4BCF-B256-904C0A85C2AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3D5D0CD-8D12-41DB-9949-2B37C3341A7F}
