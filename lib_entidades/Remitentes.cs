@@ -14,7 +14,8 @@ namespace lib_entidades
         public string Direcc_rem { get => this.direcc_rem; set => this.direcc_rem = value; }
 
         public bool Validar()
-        {   if (string.IsNullOrEmpty(nombre) ||
+        {
+            if (string.IsNullOrEmpty(nombre) ||
                 this.id <= 0 ||
                 string.IsNullOrEmpty(direcc_rem))
                 return false;

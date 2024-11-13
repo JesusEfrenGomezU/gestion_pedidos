@@ -20,7 +20,7 @@ namespace lib_entidades
 
         public bool Validar()
         {
-            if(this.id <= 0 ||
+            if (this.id <= 0 ||
                string.IsNullOrEmpty(nombre) ||
                string.IsNullOrEmpty(cedula) ||
                string.IsNullOrEmpty(telefono) ||
