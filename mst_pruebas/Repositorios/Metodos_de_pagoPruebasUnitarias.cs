@@ -1,5 +1,4 @@
-﻿using lib_entidades;
-using lib_repositorios.Interfaces;
+﻿using lib_repositorios.Interfaces;
 using lib_repositorios;
 using System;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using lib_repositorios.Implementaciones;
 using mst_pruebas.Nucleo;
+using lib_entidades.Modelos;
 
 namespace mst_pruebas.Repositorios
 {

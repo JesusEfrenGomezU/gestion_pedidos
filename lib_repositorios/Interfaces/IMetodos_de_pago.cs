@@ -1,4 +1,4 @@
-﻿using lib_entidades;
+﻿using lib_entidades.Modelos;
 using System;
 using System.Collections.Generic;
 using System.Linq;

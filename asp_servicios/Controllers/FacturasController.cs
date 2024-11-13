@@ -4,9 +4,9 @@ using lib_aplicaciones.Interfaces;
 using lib_repositorios;
 using Microsoft.AspNetCore.Mvc;
 using mst_pruebas.Nucleo;
-using lib_entidades;
 using Microsoft.EntityFrameworkCore;
 using lib_repositorios.Interfaces;
+using lib_entidades.Modelos;
 
 namespace asp_servicios.Controllers
 {

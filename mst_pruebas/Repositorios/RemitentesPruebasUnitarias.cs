@@ -1,5 +1,4 @@
-﻿using lib_entidades;
-using lib_repositorios.Implementaciones;
+﻿using lib_repositorios.Implementaciones;
 using lib_repositorios.Interfaces;
 using lib_repositorios;
 using mst_pruebas.Nucleo;
@@ -8,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using lib_entidades.Modelos;
 
 namespace mst_pruebas.Repositorios
 {
