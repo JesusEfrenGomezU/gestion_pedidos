@@ -10,5 +10,15 @@ namespace lib_entidades
 
         [Key]public int Id { get => this.id; set => this.id = value; }
         public string Transportista { get => this.transportista; set => this.transportista = value; }
+
+        public Mensajeros() { }
+
+        public bool Validar()
+        {
+            if (string.IsNullOrEmpty(this.transportista) ||
+                this.id <= 0)
+                return false;
+            return true;
+        }
     }
 }
