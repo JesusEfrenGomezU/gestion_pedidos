@@ -18,5 +18,16 @@ namespace lib_entidades
         public string Telefono { get => this.telefono; set => this.telefono = value; }
         public string Direcc { get => this.direcc; set => this.direcc = value; }
 
+        public bool Validar()
+        {
+            if(this.id <= 0 ||
+               string.IsNullOrEmpty(nombre) ||
+               string.IsNullOrEmpty(cedula) ||
+               string.IsNullOrEmpty(telefono) ||
+               string.IsNullOrEmpty(direcc))
+                return false;
+            return true;
+        }
+
     }
 }
