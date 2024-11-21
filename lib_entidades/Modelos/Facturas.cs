@@ -31,6 +31,12 @@ namespace lib_entidades.Modelos
         [ForeignKey("Remitente_id")][Column("remitente_id")] public Remitentes? Remi { get => remi; set => remi = value; }
         [ForeignKey("Mensajero_id")][Column("mensajero_id")] public Mensajeros Menj { get => menj; set => menj = value; }
 
+        public bool Validar()
+        {
+            if (this.id_fac <= 0)
+                return false;
+            return true;
+        }
         public static void administrarDetalles()
         {
 
