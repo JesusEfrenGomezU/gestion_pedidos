@@ -6,9 +6,9 @@ namespace lib_entidades.Modelos
 {
     public class Detalles
     {
-        private int id = 0;
-        private Productos? producto = null;
-        private Pedidos? pedido = null;
+        public int id = 0;
+        public Productos? producto = null;
+        public Pedidos? pedido = null;
 
         [Key] public int Id { get => id; set => id = value; }
         //o NotMapped

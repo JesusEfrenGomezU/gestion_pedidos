@@ -7,10 +7,10 @@ namespace lib_entidades.Modelos
 {
     public class Auditorias
     {
-        private int id = 0;
-        private string? tabla = "";
-        private int referencia = 0;
-        private string accion = "";
+        public int id = 0;
+        public string? tabla = "";
+        public int referencia = 0;
+        public string accion = "";
 
         public int Id { get => this.id; set => this.id = value; }
         public string? Tabla { get => this.Tabla; set => this.Tabla = value; }

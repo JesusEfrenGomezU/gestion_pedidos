@@ -6,11 +6,11 @@ namespace lib_entidades.Modelos
     public class Clientes
     {
 
-        private int id = 0;
-        private string cedula = "";
-        private string nombre = "";
-        private string telefono = "";
-        private string direcc = "";
+        public int id = 0;
+        public string cedula = "";
+        public string nombre = "";
+        public string telefono = "";
+        public string direcc = "";
 
         [Key] public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
