@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Interfaces
 {
-    public interface IRemitentes
+    public interface IRemitentesRepositorio
     {
         void Configurar(string string_conexion);
         List<Remitentes> Listar();

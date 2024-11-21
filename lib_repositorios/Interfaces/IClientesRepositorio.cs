@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Interfaces
 {
-    public interface IClientes
+    public interface IClientesRepositorio
     {
         void Configurar(string string_conexion);
         List<Clientes> Listar();

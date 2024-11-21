@@ -4,15 +4,15 @@ namespace lib_entidades.Modelos
 {
     public class Facturas
     {
-        private int id_fac = 0;
-        private Clientes cliente = null;
-        private DateTime fecha;
-        private Metodos_de_pago m_pago = null;
-        private decimal iva = 0.0m;
-        private decimal total = 0.0m;
-        private Detalles details = null;
-        private Remitentes remi = null;
-        private Mensajeros menj = null;
+        public int id_fac = 0;
+        public Clientes cliente = null;
+        public DateTime fecha;
+        public Metodos_de_pago m_pago = null;
+        public decimal iva = 0.0m;
+        public decimal total = 0.0m;
+        public Detalles details = null;
+        public Remitentes remi = null;
+        public Mensajeros menj = null;
 
         public Facturas()
         {

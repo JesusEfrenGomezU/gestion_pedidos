@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Interfaces
 {
-    public interface IFacturas
+    public interface IFacturasRepositorio
     {
         void Configurar(string string_conexion);
         List<Facturas> Listar();

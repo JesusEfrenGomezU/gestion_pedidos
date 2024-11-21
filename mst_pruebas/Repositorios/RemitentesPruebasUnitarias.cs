@@ -14,7 +14,7 @@ namespace mst_pruebas.Repositorios
     [TestClass]
     public class RemitentesPruebasUnitarias
     {
-        private IRemitentes? iRepositorio = null;
+        private IRemitentesRepositorio? iRepositorio = null;
         private Conexion? conexion = null;
         private Remitentes? entidad = null;
         private List<Remitentes>? lista = null;

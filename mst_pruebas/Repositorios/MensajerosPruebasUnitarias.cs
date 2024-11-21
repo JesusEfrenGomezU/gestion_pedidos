@@ -14,7 +14,7 @@ namespace mst_pruebas.Repositorios
     [TestClass]
     public class MensajerosPruebasUnitarias
     {
-        private IMensajeros? iRepositorio = null;
+        private IMensajerosRepositorio? iRepositorio = null;
         private Conexion? conexion = null;
         private Mensajeros? entidad = null;
         private List<Mensajeros>? lista = null;

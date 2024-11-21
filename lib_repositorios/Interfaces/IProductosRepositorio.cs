@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Interfaces
 {
-    public interface IProductos
+    public interface IProductosRepositorio
     {
         void Configurar(string string_conexion);
         List<Productos> Listar();

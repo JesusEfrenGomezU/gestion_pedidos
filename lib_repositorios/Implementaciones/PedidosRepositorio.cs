@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Implementaciones
 {
-    public class PedidosRepositorio : IPedidos
+    public class PedidosRepositorio : IPedidosRepositorio
     {
         private Conexion? conexion;
 

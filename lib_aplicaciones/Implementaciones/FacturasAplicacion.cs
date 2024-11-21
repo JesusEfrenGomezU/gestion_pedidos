@@ -1,25 +1,74 @@
 ﻿using lib_aplicaciones.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using lib_repositorios.Interfaces;
+using System.Linq.Expressions;
 using lib_entidades.Modelos;
 
 namespace lib_aplicaciones.Implementaciones
 {
     public class FacturasAplicacion : IFacturasAplicacion
     {
-        private IFacturasAplicacion? iRepositorio = null;
-        public FacturasAplicacion(IFacturas iRepositorio)
+        private IFacturasRepositorio? iRepositorio = null;
+
+        public FacturasAplicacion(IFacturasRepositorio iRepositorio)
         {
-            //(IFacturasAplicacion?) esta bien? sin eso me saca error
-            this.iRepositorio = (IFacturasAplicacion?)iRepositorio;
+            this.iRepositorio = iRepositorio;
         }
+
+        public void Configurar(string string_conexion)
+        {
+            this.iRepositorio!.Configurar(string_conexion);
+        }
+
+        public Facturas Borrar(Facturas entidad)
+        {
+            if (entidad == null || !entidad.Validar())
+                throw new Exception("lbFaltaInformacion");
+
+            if (entidad.id_fac == 0)
+                throw new Exception("lbNoSeGuardo");
+
+            entidad = iRepositorio!.Borrar(entidad);
+            return entidad;
+        }
+
+        public Facturas Guardar(Facturas entidad)
+        {
+            if (entidad == null || !entidad.Validar())
+                throw new Exception("lbFaltaInformacion");
+
+            if (entidad.id_fac != 0)
+                throw new Exception("lbYaSeGuardo");
+
+            entidad = iRepositorio!.Guardar(entidad);
+            return entidad;
+        }
+
         public List<Facturas> Listar()
         {
             return iRepositorio!.Listar();
+        }
+
+        public List<Facturas> Buscar(Facturas entidad, string tipo)
+        {
+            Expression<Func<Facturas, bool>>? condiciones = null;
+            switch (tipo.ToUpper())
+            {
+                case "cliente": condiciones = x => id_fac; break;
+                default: condiciones = x => x.id_fac == entidad.id_fac; break;
+            }
+            return this.iRepositorio!.Buscar(condiciones);
+        }
+
+        public Facturas Modificar(Facturas entidad)
+        {
+            if (entidad == null || !entidad.Validar())
+                throw new Exception("lbFaltaInformacion");
+
+            if (entidad.id_fac == 0)
+                throw new Exception("lbNoSeGuardo");
+
+            entidad = iRepositorio!.Modificar(entidad);
+            return entidad;
         }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Interfaces
 {
-    public interface IMensajeros
+    public interface IMensajerosRepositorio
     {
         void Configurar(string string_conexion);
         List<Mensajeros> Listar();

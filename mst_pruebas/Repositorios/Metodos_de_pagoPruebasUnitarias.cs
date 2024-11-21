@@ -14,7 +14,7 @@ namespace mst_pruebas.Repositorios
     [TestClass]
     public class Metodos_de_pagoPruebasUnitarias
     {
-        private IMetodos_de_pago? iRepositorio = null;
+        private IMetodos_de_pagoRepositorio? iRepositorio = null;
         private Conexion? conexion = null;
         private Metodos_de_pago? entidad = null;
         private List<Metodos_de_pago>? lista = null;

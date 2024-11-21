@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Interfaces
 {
-    public interface IPedidos
+    public interface IPedidosRepositorio
     {
         void Configurar(string string_conexion);
         List<Pedidos> Listar();

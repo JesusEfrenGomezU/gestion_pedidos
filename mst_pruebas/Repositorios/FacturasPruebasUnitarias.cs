@@ -9,7 +9,7 @@ namespace mst_pruebas.Repositorios
     [TestClass]
     public class FacturasPruebasUnitarias
     {
-        private IFacturas? iRepositorio = null;
+        private IFacturasRepositorio? iRepositorio = null;
         private Conexion? conexion = null;
         private Facturas? entidad = null;
         private List<Facturas>? lista = null;

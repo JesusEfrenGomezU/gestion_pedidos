@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Implementaciones
 {
-    public class Metodos_de_pagoRepositorio : IMetodos_de_pago
+    public class Metodos_de_pagoRepositorio : IMetodos_de_pagoRepositorio
     {
         private Conexion? conexion;
 

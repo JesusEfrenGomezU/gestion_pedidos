@@ -14,7 +14,7 @@ namespace mst_pruebas.Repositorios
     [TestClass]
     public class DetallesPruebasUnitarias
     {
-        private IDetalles? iRepositorio = null;
+        private IDetallesRepositorio? iRepositorio = null;
         private Conexion? conexion = null;
         private Detalles? entidad = null;
         private List<Detalles>? lista = null;

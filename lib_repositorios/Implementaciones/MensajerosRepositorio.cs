@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Implementaciones
 {
-    public class MensajerosRepositorio : IMensajeros
+    public class MensajerosRepositorio : IMensajerosRepositorio
     {
         private Conexion? conexion;
         public MensajerosRepositorio(Conexion conexion)

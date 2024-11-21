@@ -14,7 +14,7 @@ namespace mst_pruebas.Repositorios
     [TestClass]
     public class ProductosPruebasUnitarias
     {
-        private IProductos? iRepositorio = null;
+        private IProductosRepositorio? iRepositorio = null;
         private Conexion? conexion = null;
         private Productos? entidad = null;
         private List<Productos>? lista = null;

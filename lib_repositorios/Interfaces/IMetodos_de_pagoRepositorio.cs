@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Interfaces
 {
-    public interface IMetodos_de_pago
+    public interface IMetodos_de_pagoRepositorio
     {
         void Configurar(string string_conexion);
         List<Metodos_de_pago> Listar();

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace lib_repositorios.Implementaciones
 {
-    public class FacturasRepositorio : IFacturas
+    public class FacturasRepositorio : IFacturasRepositorio
     {
         private Conexion? conexion;
 
