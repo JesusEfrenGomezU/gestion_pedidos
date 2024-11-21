@@ -23,9 +23,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4 Pruebas Unitarias", "4 Pr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_utilidades", "lib_utilidades\lib_utilidades.csproj", "{0D890D2C-AD36-427B-9DCD-1D829F190097}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_presentaciones", "lib_presentaciones\lib_presentaciones.csproj", "{A130F820-6740-4874-9C57-E5447DAB8EBE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_presentaciones", "lib_presentaciones\lib_presentaciones.csproj", "{A130F820-6740-4874-9C57-E5447DAB8EBE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{0D890D2C-AD36-427B-9DCD-1D829F190097} = {0D890D2C-AD36-427B-9DCD-1D829F190097}
+		{73292F29-26FE-4F32-976A-93E1C5B2E326} = {73292F29-26FE-4F32-976A-93E1C5B2E326}
+		{E9357659-9F15-461B-81F6-1224B657CE13} = {E9357659-9F15-461B-81F6-1224B657CE13}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lib_comunicaciones", "lib_comunicaciones\lib_comunicaciones.csproj", "{73292F29-26FE-4F32-976A-93E1C5B2E326}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_comunicaciones", "lib_comunicaciones\lib_comunicaciones.csproj", "{73292F29-26FE-4F32-976A-93E1C5B2E326}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
