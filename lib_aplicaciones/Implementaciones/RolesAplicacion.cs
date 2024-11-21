@@ -24,7 +24,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad == null || !entidad.Validar())
                 throw new Exception("lbFaltaInformacion");
 
-            if (entidad.id_fac == 0)
+            if (entidad.id == 0)
                 throw new Exception("lbNoSeGuardo");
 
             entidad = iRepositorio!.Borrar(entidad);
@@ -36,7 +36,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad == null || !entidad.Validar())
                 throw new Exception("lbFaltaInformacion");
 
-            if (entidad.id_fac != 0)
+            if (entidad.id != 0)
                 throw new Exception("lbYaSeGuardo");
 
             entidad = iRepositorio!.Guardar(entidad);
@@ -53,8 +53,8 @@ namespace lib_aplicaciones.Implementaciones
             Expression<Func<Roles, bool>>? condiciones = null;
             switch (tipo.ToUpper())
             {
-                case "cliente": condiciones = x => id_fac; break;
-                default: condiciones = x => x.id_fac == entidad.id_fac; break;
+                case "Rol": condiciones = x => x.Rol!.Contains(entidad.Rol!); break;
+                default: condiciones = x => x.id == entidad.id; break;
             }
             return this.iRepositorio!.Buscar(condiciones);
         }
@@ -64,7 +64,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad == null || !entidad.Validar())
                 throw new Exception("lbFaltaInformacion");
 
-            if (entidad.id_fac == 0)
+            if (entidad.id == 0)
                 throw new Exception("lbNoSeGuardo");
 
             entidad = iRepositorio!.Modificar(entidad);

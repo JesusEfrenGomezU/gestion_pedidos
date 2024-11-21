@@ -24,7 +24,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad == null || !entidad.Validar())
                 throw new Exception("lbFaltaInformacion");
 
-            if (entidad.id_fac == 0)
+            if (entidad.id_pag == 0)
                 throw new Exception("lbNoSeGuardo");
 
             entidad = iRepositorio!.Borrar(entidad);
@@ -36,7 +36,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad == null || !entidad.Validar())
                 throw new Exception("lbFaltaInformacion");
 
-            if (entidad.id_fac != 0)
+            if (entidad.id_pag != 0)
                 throw new Exception("lbYaSeGuardo");
 
             entidad = iRepositorio!.Guardar(entidad);
@@ -53,8 +53,8 @@ namespace lib_aplicaciones.Implementaciones
             Expression<Func<Metodos_de_pago, bool>>? condiciones = null;
             switch (tipo.ToUpper())
             {
-                case "cliente": condiciones = x => id_fac; break;
-                default: condiciones = x => x.id_fac == entidad.id_fac; break;
+                case "tipo": condiciones = x => x.tipo!.Contains(entidad.tipo!); break;
+                default: condiciones = x => x.id_pag == entidad.id_pag; break;
             }
             return this.iRepositorio!.Buscar(condiciones);
         }
@@ -64,7 +64,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad == null || !entidad.Validar())
                 throw new Exception("lbFaltaInformacion");
 
-            if (entidad.id_fac == 0)
+            if (entidad.id_pag == 0)
                 throw new Exception("lbNoSeGuardo");
 
             entidad = iRepositorio!.Modificar(entidad);

@@ -6,12 +6,12 @@ namespace lib_entidades.Modelos
 {
     public class Usuarios
     {
-        private int id = 0;
-        private string usuario = "";
-        private string password = "";
+        public int id = 0;
+        public string usuario = "";
+        public string password = "";
         [Key] public int Id { get => this.id; set => this.id = value; }
-        private string? Usuario { get => this.usuario; set => this.usuario = value; }
-        private string? Password { get => this.password; set => this.password = value; }
+        public string? Usuario { get => this.usuario; set => this.usuario = value; }
+        public string? Password { get => this.password; set => this.password = value; }
         public bool Validar()
         {
             if (this.id <= 0 ||

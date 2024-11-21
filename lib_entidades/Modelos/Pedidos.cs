@@ -6,12 +6,12 @@ namespace lib_entidades.Modelos
 {
     public class Pedidos
     {
-        private int id = 0;
-        private int cod_pedido = 0;
-        private string descripcion = "";
-        private string medidas = "";
-        private string estado = "";
-        private Remitentes remi = null;
+        public int id = 0;
+        public int cod_pedido = 0;
+        public string descripcion = "";
+        public string medidas = "";
+        public string estado = "";
+        public Remitentes remi = null;
 
 
         [Key] public int Id { get => id; set => id = value; }

@@ -5,7 +5,7 @@ namespace lib_entidades.Modelos
     public class Facturas
     {
         public int id_fac = 0;
-        public Clientes cliente = null;
+        public String cliente = null;
         public DateTime fecha;
         public Metodos_de_pago m_pago = null;
         public decimal iva = 0.0m;
@@ -24,7 +24,7 @@ namespace lib_entidades.Modelos
         public decimal Total { get => total; set => total = value; }
 
 
-        [ForeignKey("Cliente_id")][Column("cliente_id")] public Clientes? Cliente { get => cliente; set => cliente = value; }
+        [ForeignKey("Cliente_id")][Column("cliente_id")] public String? Cliente { get => cliente; set => cliente = value; }
         public DateTime Fecha { get => fecha; set => fecha = value; }
         [ForeignKey("M_pago_id")][Column("m_pago_id")] public Metodos_de_pago? M_pago { get => m_pago; set => m_pago = value; }
         [ForeignKey("Detalle_id")][Column("detalle_id")] public Detalles? Details { get => details; set => details = value; }

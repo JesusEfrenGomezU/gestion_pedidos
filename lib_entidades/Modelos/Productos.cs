@@ -6,11 +6,11 @@ namespace lib_entidades.Modelos
     public class Productos
     {
 
-        private int id_prod = 0;
-        private string nom_prod = "";
-        private decimal precio = 0.0m;
-        private int cantidad = 0;
-        private decimal iva = 0.0m;
+        public int id_prod = 0;
+        public string nom_prod = "";
+        public decimal precio = 0.0m;
+        public int cantidad = 0;
+        public decimal iva = 0.0m;
 
         [Key] public int Id_prod { get => id_prod; set => id_prod = value; }
         public int Cantidad { get => cantidad; set => cantidad = value; }

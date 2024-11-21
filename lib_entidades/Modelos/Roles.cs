@@ -9,8 +9,8 @@ namespace lib_entidades.Modelos
 {
     public class Roles
     {
-        private int id = 0;
-        private string rol = "";
+        public int id = 0;
+        public string rol = "";
         [Key] public int Id { get => this.id; set => this.id = value; }
         public string? Rol { get => Rol; set => Rol = value; }
         public bool Validar()

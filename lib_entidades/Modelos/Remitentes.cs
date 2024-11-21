@@ -6,9 +6,9 @@ namespace lib_entidades.Modelos
 {
     public class Remitentes
     {
-        private int id = 0;
-        private string nombre = "";
-        private string direcc_rem = "";
+        public int id = 0;
+        public string nombre = "";
+        public string direcc_rem = "";
 
         [Key] public int Id { get => this.id; set => this.id = value; }
         public string Nombre { get => nombre; set => nombre = value; }

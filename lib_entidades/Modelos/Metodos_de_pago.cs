@@ -7,8 +7,8 @@ namespace lib_entidades.Modelos
 
     {
 
-        private int id_pag = 0;
-        private string tipo = "";
+        public int id_pag = 0;
+        public string tipo = "";
 
         [Key] public int Id_pag { get => id_pag; set => id_pag = value; }
         public string Tipo { get => tipo; set => tipo = value; }

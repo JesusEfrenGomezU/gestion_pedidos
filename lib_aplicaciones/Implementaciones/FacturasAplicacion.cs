@@ -53,7 +53,7 @@ namespace lib_aplicaciones.Implementaciones
             Expression<Func<Facturas, bool>>? condiciones = null;
             switch (tipo.ToUpper())
             {
-                case "cliente": condiciones = x => id_fac; break;
+                case "cliente": condiciones = x => x.cliente!.Contains(entidad.cliente!); break;
                 default: condiciones = x => x.id_fac == entidad.id_fac; break;
             }
             return this.iRepositorio!.Buscar(condiciones);
