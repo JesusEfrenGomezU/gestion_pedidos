@@ -18,6 +18,16 @@ namespace lib_entidades.Modelos
         public decimal Iva { get => iva; set => iva = value; }
         public string Nom_prod { get => nom_prod; set => nom_prod = value; }
 
+        public bool Validar()
+        {
+            if (this.id_prod <= 0 ||
+                this.precio <= 0 ||
+                string.IsNullOrEmpty(Nom_prod) ||
+                this.cantidad <= 0 ||
+                this.iva <= 0)
+                return false;
+            return true;
+        }
         public static void ValidarIva()
         {
 
