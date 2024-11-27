@@ -86,7 +86,9 @@ GO
 CREATE TABLE [Usuarios] (
     [id] INT PRIMARY KEY IDENTITY(1,1),
     [usuario] NVARCHAR(255) NULL,
-    [password] NVARCHAR(255) NULL
+    [rol] NVARCHAR(50) NULL,
+    [password] NVARCHAR(255) NULL,
+    FOREIGN KEY ([rol]) REFERENCES [Roles]([id])
 );
 GO
 
