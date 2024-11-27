@@ -82,3 +82,24 @@ CREATE TABLE [Facturas] (
     FOREIGN KEY ([detalle_id]) REFERENCES [Detalles]([id])
 );
 GO
+
+CREATE TABLE [Usuarios] (
+    [id] INT PRIMARY KEY IDENTITY(1,1),
+    [usuario] NVARCHAR(255) NULL,
+    [password] NVARCHAR(255) NULL
+);
+GO
+
+CREATE TABLE [Roles] (
+    [id] INT PRIMARY KEY IDENTITY(1,1),
+    [rol] NVARCHAR(255) NULL
+);
+GO
+
+CREATE TABLE [Auditorias] (
+    [id] INT PRIMARY KEY IDENTITY(1,1),
+    [tabla] NVARCHAR(255) NULL,
+    [referencia] INT NOT NULL,
+    [accion] NVARCHAR(255) NOT NULL
+);
+
