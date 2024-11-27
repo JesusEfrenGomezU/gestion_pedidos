@@ -32,6 +32,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_presentaciones", "lib_p
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "lib_comunicaciones", "lib_comunicaciones\lib_comunicaciones.csproj", "{73292F29-26FE-4F32-976A-93E1C5B2E326}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "asp_presentaciones", "asp_presentaciones\asp_presentaciones.csproj", "{8A1273E8-9B7B-45B5-8F2C-D1313A0CA652}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -70,6 +72,10 @@ Global
 		{73292F29-26FE-4F32-976A-93E1C5B2E326}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73292F29-26FE-4F32-976A-93E1C5B2E326}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{73292F29-26FE-4F32-976A-93E1C5B2E326}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A1273E8-9B7B-45B5-8F2C-D1313A0CA652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A1273E8-9B7B-45B5-8F2C-D1313A0CA652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A1273E8-9B7B-45B5-8F2C-D1313A0CA652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A1273E8-9B7B-45B5-8F2C-D1313A0CA652}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +89,7 @@ Global
 		{0D890D2C-AD36-427B-9DCD-1D829F190097} = {2E6E82AD-1241-4CF8-B483-233EEE6A675A}
 		{A130F820-6740-4874-9C57-E5447DAB8EBE} = {3D5184ED-EB56-46CB-9D29-4AE4E7B3576A}
 		{73292F29-26FE-4F32-976A-93E1C5B2E326} = {3D5184ED-EB56-46CB-9D29-4AE4E7B3576A}
+		{8A1273E8-9B7B-45B5-8F2C-D1313A0CA652} = {3D5184ED-EB56-46CB-9D29-4AE4E7B3576A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {C3D5D0CD-8D12-41DB-9949-2B37C3341A7F}
