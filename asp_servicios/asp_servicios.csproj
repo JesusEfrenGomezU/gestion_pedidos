@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -24,6 +24,7 @@
     <ProjectReference Include="..\lib_aplicaciones\lib_aplicaciones.csproj" />
     <ProjectReference Include="..\lib_entidades\lib_entidades.csproj" />
     <ProjectReference Include="..\lib_repositorios\lib_repositorios.csproj" />
+    <ProjectReference Include="..\lib_utilidades\lib_utilidades.csproj" />
     <ProjectReference Include="..\mst_pruebas\mst_pruebas.csproj" />
   </ItemGroup>
 
