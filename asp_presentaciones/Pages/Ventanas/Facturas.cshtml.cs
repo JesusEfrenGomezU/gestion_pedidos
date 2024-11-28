@@ -205,7 +205,7 @@ namespace asp_presentacion.Pages.Ventanas
                 // Cargar Métodos de Pago
                 if (MetodosDePago == null || MetodosDePago!.Count <= 0)
                 {
-                    var taskMetodosDePago = this.iMetodosPagoPresentacion!.Listar();
+                    var taskMetodosDePago = this.iMetodos_de_pagoPresentacion!.Listar();
                     taskMetodosDePago.Wait();
                     MetodosDePago = taskMetodosDePago.Result;
                 }

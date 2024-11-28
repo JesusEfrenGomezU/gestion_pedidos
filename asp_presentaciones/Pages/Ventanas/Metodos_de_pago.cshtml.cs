@@ -3,19 +3,21 @@ using lib_presentaciones.Interfaces;
 using lib_utilidades;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace asp_presentacion.Pages.Ventanas
 {
-    public class Tipos_productoModel : PageModel
+    public class Metodos_de_pagoModel : PageModel
     {
-        private ITipos_productoPresentacion? iPresentacion = null;
+        private IMetodos_de_pagoPresentacion? iPresentacion = null;
 
-        public Tipos_productoModel(ITipos_productoPresentacion iPresentacion)
+        public Metodos_de_pagoModel(IMetodos_de_pagoPresentacion iPresentacion)
         {
             try
             {
                 this.iPresentacion = iPresentacion;
-                Filtro = new Tipos_producto();
+                Filtro = new Metodos_de_pago();
             }
             catch (Exception ex)
             {
@@ -24,9 +26,9 @@ namespace asp_presentacion.Pages.Ventanas
         }
 
         [BindProperty] public Enumerables.Ventanas Accion { get; set; }
-        [BindProperty] public Tipos_producto? Actual { get; set; }
-        [BindProperty] public Tipos_producto? Filtro { get; set; }
-        [BindProperty] public List<Tipos_producto>? Lista { get; set; }
+        [BindProperty] public Metodos_de_pago? Actual { get; set; }
+        [BindProperty] public Metodos_de_pago? Filtro { get; set; }
+        [BindProperty] public List<Metodos_de_pago>? Lista { get; set; }
 
         public virtual void OnGet() { OnPostBtRefrescar(); }
 
@@ -34,10 +36,10 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
-                Filtro!.Nombre = Filtro!.Nombre ?? "";
+                Filtro!.tipo = Filtro!.tipo ?? "";  // Aseguramos que el filtro no sea null.
 
                 Accion = Enumerables.Ventanas.Listas;
-                var task = this.iPresentacion!.Buscar(Filtro!, "NOMBRE");
+                var task = this.iPresentacion!.Buscar(Filtro!, "TIPO");  // Buscamos por tipo
                 task.Wait();
                 Lista = task.Result;
                 Actual = null;
@@ -53,9 +55,10 @@ namespace asp_presentacion.Pages.Ventanas
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Actual = new Tipos_producto()
+                Actual = new Metodos_de_pago()
                 {
-                    // Nombre = DateTime.Now,
+                    // Puedes inicializar otros campos si es necesario
+                    // tipo = DateTime.Now, // ejemplo
                 };
             }
             catch (Exception ex)
@@ -70,7 +73,7 @@ namespace asp_presentacion.Pages.Ventanas
             {
                 OnPostBtRefrescar();
                 Accion = Enumerables.Ventanas.Editar;
-                Actual = Lista!.FirstOrDefault(x => x.Id.ToString() == data);
+                Actual = Lista!.FirstOrDefault(x => x.id_pag.ToString() == data);  // Filtramos por id
             }
             catch (Exception ex)
             {
@@ -78,16 +81,18 @@ namespace asp_presentacion.Pages.Ventanas
             }
         }
 
-        public virtual void OnPostBtGuardar()
+        public virtual async Task OnPostBtGuardarAsync()
         {
             try
             {
                 Accion = Enumerables.Ventanas.Editar;
-                Task<Tipos_producto>? task = null;
-                if (Actual!.Id == 0)
-                    task = this.iPresentacion!.Guardar(Actual!);
+
+                Task<Metodos_de_pago>? task = null;
+                if (Actual!.id_pag == 0)
+                    task = this.iPresentacion!.Guardar(Actual!);  // Guardamos nuevo
                 else
-                    task = this.iPresentacion!.Modificar(Actual!);
+                    task = this.iPresentacion!.Modificar(Actual!);  // Modificamos existente
+
                 task.Wait();
                 Actual = task.Result;
                 Accion = Enumerables.Ventanas.Listas;
@@ -105,7 +110,7 @@ namespace asp_presentacion.Pages.Ventanas
             {
                 OnPostBtRefrescar();
                 Accion = Enumerables.Ventanas.Borrar;
-                Actual = Lista!.FirstOrDefault(x => x.Id.ToString() == data);
+                Actual = Lista!.FirstOrDefault(x => x.id_pag.ToString() == data);  // Obtenemos el elemento para borrar
             }
             catch (Exception ex)
             {
@@ -117,7 +122,7 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
-                var task = this.iPresentacion!.Borrar(Actual!);
+                var task = this.iPresentacion!.Borrar(Actual!);  // Borramos el método de pago
                 Actual = task.Result;
                 OnPostBtRefrescar();
             }

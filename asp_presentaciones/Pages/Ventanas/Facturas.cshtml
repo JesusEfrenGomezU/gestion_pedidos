@@ -27,7 +27,7 @@
             {
                 <input type="hidden" asp-for="@Model.Actual!.cliente" />
                 <input type="hidden" asp-for="@Model.Actual!.fecha" />
-                <input type="hidden" asp-for="@Model.Actual!.m_pago" />
+                //<input type="hidden" asp-for="@Model.Actual!.m_pago" />
                 <input type="hidden" asp-for="@Model.Actual!.iva" />
                 <input type="hidden" asp-for="@Model.Actual!.total" />
             }
@@ -53,11 +53,6 @@
                             <label class="col-lg-4 control-label">Método de Pago</label>
                             <div class="col-lg-6">
                                 <select id="nmMetodoPago" class="cts_forms form-control" asp-for="@Model.Actual!.m_pago">
-                                    @foreach (var metodo in Model.MetodosDePago)
-
-                                    {
-                                        <option value="@metodo.Id">@metodo.Nombre</option>
-                                    }
                                 </select>
                             </div>
                         </div>
@@ -123,7 +118,7 @@
                                 <tr>
                                     <td>@elemento.cliente</td>
                                     <td>@elemento.fecha.ToString("dd/MM/yyyy")</td>
-                                    <td>@elemento.m_pago.Nombre</td>
+                                    <td>@elemento.m_pago</td>
                                     <td>@elemento.iva</td>
                                     <td>@elemento.total</td>
                                     <td>
