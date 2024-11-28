@@ -8,12 +8,12 @@ namespace asp_servicios.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
-    public class FacturasController : ControllerBase
+    public class ClientesController : ControllerBase
     {
-        private IFacturasAplicacion? iAplicacion = null;
+        private IClientesAplicacion? iAplicacion = null;
         private TokenController? tokenController = null;
 
-        public FacturasController(IFacturasAplicacion? iAplicacion,
+        public ClientesController(IClientesAplicacion? iAplicacion,
             TokenController tokenController)
         {
             this.iAplicacion = iAplicacion;
@@ -77,7 +77,7 @@ namespace asp_servicios.Controllers
                     return JsonConversor.ConvertirAString(respuesta);
                 }
 
-                var entidad = JsonConversor.ConvertirAObjeto<Facturas>(
+                var entidad = JsonConversor.ConvertirAObjeto<Clientes>(
                     JsonConversor.ConvertirAString(datos["Entidad"]));
                 var tipo = datos["Tipo"].ToString();
 
@@ -108,7 +108,7 @@ namespace asp_servicios.Controllers
                     return JsonConversor.ConvertirAString(respuesta);
                 }
 
-                var entidad = JsonConversor.ConvertirAObjeto<Facturas>(
+                var entidad = JsonConversor.ConvertirAObjeto<Clientes>(
                     JsonConversor.ConvertirAString(datos["Entidad"]));
 
                 this.iAplicacion!.Configurar(Configuracion.ObtenerValor("ConectionString"));
@@ -139,7 +139,7 @@ namespace asp_servicios.Controllers
                     return JsonConversor.ConvertirAString(respuesta);
                 }
 
-                var entidad = JsonConversor.ConvertirAObjeto<Facturas>(
+                var entidad = JsonConversor.ConvertirAObjeto<Clientes>(
                     JsonConversor.ConvertirAString(datos["Entidad"]));
 
                 this.iAplicacion!.Configurar(Configuracion.ObtenerValor("ConectionString"));
@@ -170,7 +170,7 @@ namespace asp_servicios.Controllers
                     return JsonConversor.ConvertirAString(respuesta);
                 }
 
-                var entidad = JsonConversor.ConvertirAObjeto<Facturas>(
+                var entidad = JsonConversor.ConvertirAObjeto<Clientes>(
                     JsonConversor.ConvertirAString(datos["Entidad"]));
 
                 this.iAplicacion!.Configurar(Configuracion.ObtenerValor("ConectionString"));
