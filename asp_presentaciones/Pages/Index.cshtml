@@ -1,10 +1,61 @@
 ﻿@page
-@model IndexModel
+@model asp_presentacion.Pages.IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
+@if (!Model.EstaLogueado)
+{
+    <div class="container"
+         align="left"
+         style="width:100%">
+        <h3>
+            Login
+        </h3>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+        <form method="POST">
+            <div style="width:60%">
+                <div class="form-group">
+                    <label class="control-label">
+                        Usuario:
+                    </label>
+                    <input onchange="keyUp(this)"
+                           asp-for="@Model.Email"
+                           class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label">
+                        Contraseña:
+                    </label>
+                    <input type="password"
+                           onchange="keyUp(this)"
+                           asp-for="@Model.Contraseña"
+                           class="form-control" />
+                </div>
+
+                <input type="submit"
+                       value="Limpiar"
+                       asp-page-handler="BtClean"
+                       class="btn btn-default" />
+                <input type="submit"
+                       value="Entrar"
+                       asp-page-handler="BtEnter"
+                       class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">
+            Bienvenido
+        </h1>
+
+        <form method="POST">
+            <input type="submit"
+                   value="Cerrar"
+                   asp-page-handler="BtClose"
+                   class="btn btn-default" />
+        </form>
+    </div>
+}

@@ -19,6 +19,9 @@ namespace lib_repositorios
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
         }
 
+        protected DbSet<Auditorias>? Auditorias { get; set; }
+        protected DbSet<Roles>? Roles { get; set; }
+        protected DbSet<Usuarios>? Usuarios { get; set; }
         protected DbSet<Facturas>? Facturas { get; set; }
         protected DbSet<Mensajeros>? Mensajeros { get; set; }
         protected DbSet<Metodos_de_pago>? Metodos_de_pago { get; set; }
