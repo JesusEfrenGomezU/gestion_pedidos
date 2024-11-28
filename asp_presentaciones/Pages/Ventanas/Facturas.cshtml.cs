@@ -1,33 +1,41 @@
 using lib_entidades.Modelos;
 using lib_presentaciones.Interfaces;
 using lib_utilidades;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace asp_presentacion.Pages.Ventanas
 {
-    public class ClientesModel : PageModel
+    public class FacturasModel : PageModel
     {
-        private IClientesPresentacion? iPresentacion = null;
-        private IProductosPresentacion? iProductosPresentacion = null;
-        private IPromocionesPresentacion? iPromocionesPresentacion = null;
-        private IImagenesPresentacion? iImagenesPresentacion = null; // Para cargar las imágenes existentes
+        private IFacturasPresentacion? iPresentacion = null;
+        private IMetodos_de_pagoPresentacion? iMetodos_de_pagoPresentacion = null; 
+        private IClientesPresentacion? iClientesPresentacion = null; 
+        private IRemitentesPresentacion? iRemitentesPresentacion = null; 
+        private IMensajerosPresentacion? iMensajerosPresentacion = null; 
+        private IDetallesPresentacion? iDetallesPresentacion = null; 
 
-        public ClientesModel(IClientesPresentacion iPresentacion, IProductosPresentacion iProductosPresentacion, IPromocionesPresentacion iPromocionesPresentacion, IImagenesPresentacion iImagenesPresentacion)
+        public FacturasModel(
+            IFacturasPresentacion iPresentacion,
+            IMetodos_de_pagoPresentacion iMetodos_de_pagoPresentacion,
+            IClientesPresentacion iClientesPresentacion,
+            IRemitentesPresentacion iRemitentesPresentacion,
+            IMensajerosPresentacion iMensajerosPresentacion,
+            IDetallesPresentacion iDetallesPresentacion)
         {
             try
             {
                 this.iPresentacion = iPresentacion;
-                this.iProductosPresentacion = iProductosPresentacion;
-                this.iPromocionesPresentacion = iPromocionesPresentacion;
-                this.iImagenesPresentacion = iImagenesPresentacion;
-                Filtro = new Clientes();
+                this.iMetodos_de_pagoPresentacion = iMetodos_de_pagoPresentacion;
+                this.iClientesPresentacion = iClientesPresentacion;
+                this.iRemitentesPresentacion = iRemitentesPresentacion;
+                this.iMensajerosPresentacion = iMensajerosPresentacion;
+                this.iDetallesPresentacion = iDetallesPresentacion;
+                Filtro = new Facturas();
             }
             catch (Exception ex)
             {
@@ -36,12 +44,14 @@ namespace asp_presentacion.Pages.Ventanas
         }
 
         [BindProperty] public Enumerables.Ventanas Accion { get; set; }
-        [BindProperty] public Clientes? Actual { get; set; }
-        [BindProperty] public Clientes? Filtro { get; set; }
-        [BindProperty] public List<Clientes>? Lista { get; set; }
-        [BindProperty] public List<Productos>? Productos { get; set; }
-        [BindProperty] public List<Promociones>? Promociones { get; set; }
-        [BindProperty] public List<Imagenes>? Imagenes { get; set; } // Lista de imágenes disponibles
+        [BindProperty] public Facturas? Actual { get; set; }
+        [BindProperty] public Facturas? Filtro { get; set; }
+        [BindProperty] public List<Facturas>? Lista { get; set; }
+        [BindProperty] public List<Clientes>? Clientes { get; set; }
+        [BindProperty] public List<Metodos_de_pago>? MetodosDePago { get; set; }
+        [BindProperty] public List<Remitentes>? Remitentes { get; set; }
+        [BindProperty] public List<Mensajeros>? Mensajeros { get; set; }
+        [BindProperty] public List<Detalles>? Detalles { get; set; }
 
         public virtual void OnGet() { OnPostBtRefrescar(); }
 
@@ -49,10 +59,10 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
-                Filtro!.Titulo = Filtro!.Titulo ?? "";
+                Filtro!.cliente = Filtro!.cliente ?? "";
 
                 Accion = Enumerables.Ventanas.Listas;
-                var task = this.iPresentacion!.Buscar(Filtro!, "TITULO");
+                var task = this.iPresentacion!.Buscar(Filtro!, "CLIENTE");
                 task.Wait();
                 Lista = task.Result;
                 CargarCombox();
@@ -70,7 +80,7 @@ namespace asp_presentacion.Pages.Ventanas
             {
                 Accion = Enumerables.Ventanas.Editar;
                 CargarCombox();
-                Actual = new Clientes();
+                Actual = new Facturas();
             }
             catch (Exception ex)
             {
@@ -84,7 +94,7 @@ namespace asp_presentacion.Pages.Ventanas
             {
                 OnPostBtRefrescar();
                 Accion = Enumerables.Ventanas.Editar;
-                Actual = Lista!.FirstOrDefault(x => x.Id.ToString() == data);
+                Actual = Lista!.FirstOrDefault(x => x.id_fac.ToString() == data);
                 CargarCombox();
             }
             catch (Exception ex)
@@ -99,18 +109,13 @@ namespace asp_presentacion.Pages.Ventanas
 
             if (Actual == null)
             {
-                Actual = new Clientes();
-            }
-
-            if (Actual._Imagen == null)
-            {
-                Actual._Imagen = new Imagenes();
+                Actual = new Facturas();
             }
 
             try
             {
-                Task<Clientes>? task = null;
-                if (Actual.Id == 0)
+                Task<Facturas>? task = null;
+                if (Actual.id_fac == 0)
                 {
                     task = this.iPresentacion!.Guardar(Actual!);
                 }
@@ -137,7 +142,7 @@ namespace asp_presentacion.Pages.Ventanas
             {
                 OnPostBtRefrescar();
                 Accion = Enumerables.Ventanas.Borrar;
-                Actual = Lista!.FirstOrDefault(x => x.Id.ToString() == data);
+                Actual = Lista!.FirstOrDefault(x => x.id_fac.ToString() == data);
             }
             catch (Exception ex)
             {
@@ -189,28 +194,44 @@ namespace asp_presentacion.Pages.Ventanas
         {
             try
             {
-                // Cargar Productos
-                if (Productos == null || Productos!.Count <= 0)
+                // Cargar Clientes
+                if (Clientes == null || Clientes!.Count <= 0)
                 {
-                    var taskProductos = this.iProductosPresentacion!.Listar();
-                    taskProductos.Wait();
-                    Productos = taskProductos.Result;
+                    var taskClientes = this.iClientesPresentacion!.Listar();
+                    taskClientes.Wait();
+                    Clientes = taskClientes.Result;
                 }
 
-                // Cargar Promociones
-                if (Promociones == null || Promociones!.Count <= 0)
+                // Cargar Métodos de Pago
+                if (MetodosDePago == null || MetodosDePago!.Count <= 0)
                 {
-                    var taskPromociones = this.iPromocionesPresentacion!.Listar();
-                    taskPromociones.Wait();
-                    Promociones = taskPromociones.Result;
+                    var taskMetodosDePago = this.iMetodosPagoPresentacion!.Listar();
+                    taskMetodosDePago.Wait();
+                    MetodosDePago = taskMetodosDePago.Result;
                 }
 
-                // Cargar Imágenes
-                if (Imagenes == null || Imagenes!.Count <= 0)
+                // Cargar Remitentes
+                if (Remitentes == null || Remitentes!.Count <= 0)
                 {
-                    var taskImagenes = this.iImagenesPresentacion!.Listar();
-                    taskImagenes.Wait();
-                    Imagenes = taskImagenes.Result;
+                    var taskRemitentes = this.iRemitentesPresentacion!.Listar();
+                    taskRemitentes.Wait();
+                    Remitentes = taskRemitentes.Result;
+                }
+
+                // Cargar Mensajeros
+                if (Mensajeros == null || Mensajeros!.Count <= 0)
+                {
+                    var taskMensajeros = this.iMensajerosPresentacion!.Listar();
+                    taskMensajeros.Wait();
+                    Mensajeros = taskMensajeros.Result;
+                }
+
+                // Cargar Detalles
+                if (Detalles == null || Detalles!.Count <= 0)
+                {
+                    var taskDetalles = this.iDetallesPresentacion!.Listar();
+                    taskDetalles.Wait();
+                    Detalles = taskDetalles.Result;
                 }
             }
             catch (Exception ex)

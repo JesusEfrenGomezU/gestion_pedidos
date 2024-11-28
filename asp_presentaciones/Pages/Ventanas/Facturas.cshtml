@@ -1,7 +1,7 @@
 ﻿@page
-@model asp_presentacion.Pages.Ventanas.ClientesModel
+@model asp_presentacion.Pages.Ventanas.FacturasModel
 @{
-    ViewData["Cedula"] = "Clientes";
+    ViewData["Titulo"] = "Facturas";
 }
 <center>
     <div>
@@ -9,7 +9,7 @@
             @Html.AntiForgeryToken()
 
             <div align="left">
-                <h3>Clientes</h3>
+                <h3>Facturas</h3>
             </div>
             <div align="left" class="bt_panel_buttons">
                 <input type="submit" value="Refrescar" asp-page-handler="BtRefrescar" class="btn btn-secondary" disabled="@(Model.Accion != lib_utilidades.Enumerables.Ventanas.Listas)" />
@@ -20,44 +20,57 @@
 
             @if (Model.Accion != lib_utilidades.Enumerables.Ventanas.Listas || Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
             {
-                <input type="hidden" asp-for="@Model.Actual!.id" />
+                <input type="hidden" asp-for="@Model.Actual!.id_fac" />
             }
 
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
             {
-                <input type="hidden" asp-for="@Model.Actual!.Cedula" />
-                <input type="hidden" asp-for="@Model.Actual!.nombre" />
-                <input type="hidden" asp-for="@Model.Actual!.telefono" />
-                <input type="hidden" asp-for="@Model.Actual!.direcc" />
+                <input type="hidden" asp-for="@Model.Actual!.cliente" />
+                <input type="hidden" asp-for="@Model.Actual!.fecha" />
+                <input type="hidden" asp-for="@Model.Actual!.m_pago" />
+                <input type="hidden" asp-for="@Model.Actual!.iva" />
+                <input type="hidden" asp-for="@Model.Actual!.total" />
             }
 
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Editar)
             {
                 <div class="containers_vn panel panel-default">
-                    <h3>Pagina</h3>
+                    <h3>Detalles de la Factura</h3>
                     <div>
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">Cedula</label>
+                            <label class="col-lg-4 control-label">Cliente</label>
                             <div class="col-lg-6">
-                                <input id="nmCedula" class="cts_forms form-control" asp-for="@Model.Actual!.Cedula" />
+                                <input id="nmCliente" class="cts_forms form-control" asp-for="@Model.Actual!.cliente" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">nombre</label>
+                            <label class="col-lg-4 control-label">Fecha</label>
                             <div class="col-lg-6">
-                                <input id="nmnombre" class="cts_forms form-control" asp-for="@Model.Actual!.nombre" />
+                                <input id="nmFecha" class="cts_forms form-control" asp-for="@Model.Actual!.fecha" type="date" />
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">telefono</label>
+                            <label class="col-lg-4 control-label">Método de Pago</label>
                             <div class="col-lg-6">
-                                <input id="nmtelefono" class="cts_forms form-control" asp-for="@Model.Actual!.telefono" />
+                                <select id="nmMetodoPago" class="cts_forms form-control" asp-for="@Model.Actual!.m_pago">
+                                    @foreach (var metodo in Model.MetodosDePago)
+
+                                    {
+                                        <option value="@metodo.Id">@metodo.Nombre</option>
+                                    }
+                                </select>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-lg-4 control-label">direcc</label>
+                            <label class="col-lg-4 control-label">IVA</label>
                             <div class="col-lg-6">
-                                <input id="nmdirecc" class="cts_forms form-control" asp-for="@Model.Actual!.direcc" />
+                                <input id="nmIva" class="cts_forms form-control" asp-for="@Model.Actual!.iva" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-lg-4 control-label">Total</label>
+                            <div class="col-lg-6">
+                                <input id="nmTotal" class="cts_forms form-control" asp-for="@Model.Actual!.total" />
                             </div>
                         </div>
                     </div>
@@ -76,8 +89,8 @@
                     <div class='pp_del_inner'>
                         <div style='width:95%'>
                             <h2 align="left">Mensaje</h2>
-                            <h4 align="left">Desea borrar la entidad?</h4>
-                            <h6 align="left">@Model.Actual!.Cedula</h6>
+                            <h4 align="left">¿Desea borrar la factura?</h4>
+                            <h6 align="left">@Model.Actual!.cliente</h6>
                             <br />
                             <br />
                             <input type="submit" value="Borrar" asp-page-handler="BtBorrar" class="btn btn-secondary" />
@@ -89,28 +102,33 @@
 
             @if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Listas || Model.Accion == lib_utilidades.Enumerables.Ventanas.Borrar)
             {
-                <input id="flCedula" class="cts_forms form-control" asp-for="@Model.Filtro!.Cedula" placeholder="Nombre" />
+                <input id="flCliente" class="cts_forms form-control" asp-for="@Model.Filtro!.cliente" placeholder="Cliente" />
                 <br />
 
                 <div class="containers_vn panel panel-default">
                     <table class="tb_data table table-striped table-bordered table-hover">
                         <tr>
-                            <th>Cedula</th>
-                            <th class="cl_hidden">nombre</th>
-                            <th class="cl_hidden">telefono</th>
-                            <th class="cl_hidden">direcc</th>
+                            <th>Cliente</th>
+                            <th>Fecha</th>
+                            <th>Método de Pago</th>
+                            <th>IVA</th>
+                            <th>Total</th>
+                            <th>Acciones</th>
                         </tr>
                         @if (Model != null && Model.Lista != null)
+
                         {
                             @foreach (var elemento in Model.Lista)
                             {
                                 <tr>
-                                    <td>@elemento.Cedula</td>
-                                    <td class="cl_hidden">@elemento.nombre</td>
-                                    <td class="cl_hidden">@elemento.telefono</td>
-                                    <td>@elemento.direcc</td>
-                                        <input type="submit" value="Modificar" asp-page-handler="BtModificar" class="btn btn-secondary" asp-route-data="@elemento.Id" />
-                                        <input type="submit" value="Borrar" asp-page-handler="BtBorrarVal" class="btn btn-secondary" asp-route-data="@elemento.Id" />
+                                    <td>@elemento.cliente</td>
+                                    <td>@elemento.fecha.ToString("dd/MM/yyyy")</td>
+                                    <td>@elemento.m_pago.Nombre</td>
+                                    <td>@elemento.iva</td>
+                                    <td>@elemento.total</td>
+                                    <td>
+                                        <input type="submit" value="Modificar" asp-page-handler="BtModificar" class="btn btn-secondary" asp-route-data="@elemento.id_fac" />
+                                        <input type="submit" value="Borrar" asp-page-handler="BtBorrarVal" class="btn btn-secondary" asp-route-data="@elemento.id_fac" />
                                     </td>
                                 </tr>
                             }
@@ -121,3 +139,4 @@
         </form>
     </div>
 </center>
+
