@@ -27,8 +27,27 @@ namespace asp_servicios
             services.AddScoped<Conexion, Conexion>();
             // Repositorios
             services.AddScoped<IClientesRepositorio, ClientesRepositorio>();
+            services.AddScoped<IAuditoriasRepositorio,AuditoriasRepositorio>();
+            services.AddScoped<IDetallesRepositorio, DetallesRepositorio>();
+            services.AddScoped<IFacturasRepositorio, FacturasRepositorio>();
+            services.AddScoped<IMensajerosRepositorio, MensajerosRepositorio>();
+            services.AddScoped<IMetodos_de_pagoRepositorio, Metodos_de_pagoRepositorio>();
+            services.AddScoped<IPedidosRepositorio, PedidosRepositorio>();
+            services.AddScoped<IProductosRepositorio, ProductosRepositorio>();
+            services.AddScoped<IRemitentesRepositorio, RemitentesRepositorio>();
+            services.AddScoped<IRolesRepositorio,RolesRepositorio>();
+            services.AddScoped<IUsuariosRepositorio, UsuariosRepositorio>();
             // Aplicaciones
             services.AddScoped<IClientesAplicacion, ClientesAplicacion>();
+            services.AddScoped<IDetallesAplicacion, DetallesAplicacion>();
+            services.AddScoped<IFacturasAplicacion, FacturasAplicacion>();
+            services.AddScoped<IMensajerosAplicacion, MensajerosAplicacion>();
+            services.AddScoped<IMetodos_de_pagoAplicacion, Metodos_de_pagoAplicacion>();
+            services.AddScoped<IPedidosAplicacion, PedidosAplicacion>();
+            services.AddScoped<IProductosAplicacion, ProductosAplicacion>();
+            services.AddScoped<IRemitentesAplicacion, RemitentesAplicacion>();
+            services.AddScoped<IRolesAplicacion, RolesAplicacion>();
+            services.AddScoped<IUsuariosAplicacion, UsuariosAplicacion>();
             // Controladores
             services.AddScoped<TokenController, TokenController>();
             Conexion Conexion = new Conexion();
