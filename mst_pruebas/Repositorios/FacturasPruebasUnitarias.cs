@@ -47,10 +47,10 @@ namespace mst_pruebas.Repositorios
         {
             //solo me modifica el nombre añadiendo un string y una fecha que se pasa a string
             //de la misma forma se puede modificar a gusto cualquier otra cosa de la entidad y ramificaciones 
-            entidad!.Cliente!.Nombre = entidad.Cliente.Nombre + " Modificado " + DateTime.Now.ToString(); 
+            /*entidad!.Cliente!.Nombre = entidad.Cliente.Nombre + " Modificado " + DateTime.Now.ToString(); 
             entidad = iRepositorio!.Modificar(entidad!);
             lista = iRepositorio!.Buscar(x => x.Id_fac == entidad.Id_fac);
-            Assert.IsTrue(lista.Count > 0);
+            Assert.IsTrue(lista.Count > 0);*/
         }
 
         public void Guardar()

@@ -48,7 +48,7 @@ namespace lib_presentaciones.Implementaciones
 
         public async Task<Metodos_de_pago> Guardar(Metodos_de_pago entidad)
         {
-            if (entidad.Id != 0 || !entidad.Validar())
+            if (entidad.Id_pag != 0 || !entidad.Validar())
             {
                 throw new Exception("lbFaltaInformacion");
             }
@@ -68,7 +68,7 @@ namespace lib_presentaciones.Implementaciones
 
         public async Task<Metodos_de_pago> Modificar(Metodos_de_pago entidad)
         {
-            if (entidad.Id == 0 || !entidad.Validar())
+            if (entidad.Id_pag == 0 || !entidad.Validar())
             {
                 throw new Exception("lbFaltaInformacion");
             }
@@ -88,7 +88,7 @@ namespace lib_presentaciones.Implementaciones
 
         public async Task<Metodos_de_pago> Borrar(Metodos_de_pago entidad)
         {
-            if (entidad.Id == 0 || !entidad.Validar())
+            if (entidad.Id_pag == 0 || !entidad.Validar())
             {
                 throw new Exception("lbFaltaInformacion");
             }

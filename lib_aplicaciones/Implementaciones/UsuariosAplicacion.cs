@@ -24,7 +24,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad == null || !entidad.Validar())
                 throw new Exception("lbFaltaInformacion");
 
-            if (entidad.id == 0)
+            if (entidad.Id == 0)
                 throw new Exception("lbNoSeGuardo");
 
             entidad = iRepositorio!.Borrar(entidad);
@@ -36,7 +36,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad == null || !entidad.Validar())
                 throw new Exception("lbFaltaInformacion");
 
-            if (entidad.id != 0)
+            if (entidad.Id != 0)
                 throw new Exception("lbYaSeGuardo");
 
             entidad = iRepositorio!.Guardar(entidad);
@@ -53,8 +53,8 @@ namespace lib_aplicaciones.Implementaciones
             Expression<Func<Usuarios, bool>>? condiciones = null;
             switch (tipo.ToUpper())
             {
-                case "usuario": condiciones = x => x.usuario!.Contains(entidad.usuario!); break;
-                default: condiciones = x => x.id == entidad.id; break;
+                case "usuario": condiciones = x => x.Usuario!.Contains(entidad.Usuario!); break;
+                default: condiciones = x => x.Id == entidad.Id; break;
             }
             return this.iRepositorio!.Buscar(condiciones);
         }
@@ -64,7 +64,7 @@ namespace lib_aplicaciones.Implementaciones
             if (entidad == null || !entidad.Validar())
                 throw new Exception("lbFaltaInformacion");
 
-            if (entidad.id == 0)
+            if (entidad.Id == 0)
                 throw new Exception("lbNoSeGuardo");
 
             entidad = iRepositorio!.Modificar(entidad);

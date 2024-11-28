@@ -48,7 +48,7 @@ namespace lib_presentaciones.Implementaciones
 
         public async Task<Facturas> Guardar(Facturas entidad)
         {
-            if (entidad.Id != 0 || !entidad.Validar())
+            if (entidad.Id_fac != 0 || !entidad.Validar())
             {
                 throw new Exception("lbFaltaInformacion");
             }
@@ -68,7 +68,7 @@ namespace lib_presentaciones.Implementaciones
 
         public async Task<Facturas> Modificar(Facturas entidad)
         {
-            if (entidad.Id == 0 || !entidad.Validar())
+            if (entidad.Id_fac == 0 || !entidad.Validar())
             {
                 throw new Exception("lbFaltaInformacion");
             }
@@ -88,7 +88,7 @@ namespace lib_presentaciones.Implementaciones
 
         public async Task<Facturas> Borrar(Facturas entidad)
         {
-            if (entidad.Id == 0 || !entidad.Validar())
+            if (entidad.Id_fac == 0 || !entidad.Validar())
             {
                 throw new Exception("lbFaltaInformacion");
             }
